@@ -1,32 +1,24 @@
 #include<stdio.h>
-#include<math.h>
 int main()
 {
-    int n;
+    int f=0,sec=1,n,next=0;
     scanf("%d",&n);
-    int a=0,b=1,c;
-    for(int i=1;i<=n;i++)
+    while(n>next)
     {
-        c=a+b;
-        if(c>n)
-        {
-            break;
-        }
-        a=b;
-        b=c;
+        next=f+sec;
+        f=sec;
+        sec=next;
     }
-    int d1=abs(n-c);
-    int d2=abs(n-b);
-    if(d1>d2)
+    if(n-f<sec-n)
     {
-        printf("%d",b);
+        printf("%d",f);
     }
-    else if(d1<d2)
+    else if(n-f==sec-n)
     {
-        printf("%d",c);
+        printf("%d %d",f,sec);
     }
     else
     {
-        printf("%d %d ",b,c);
+        printf("%d ",sec);
     }
 }
