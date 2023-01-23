@@ -1,24 +1,61 @@
 #include<stdio.h>
+int fab(int n);
 int main()
 {
-    int f=0,sec=1,n,next=0;
+    int n,d1,d2,ap,bp,i;
     scanf("%d",&n);
-    while(n>next)
+    fab(n);
+    for(i=n+1;;i++)
     {
-        next=f+sec;
-        f=sec;
-        sec=next;
+        if(fab(i))
+        {
+            ap=i;
+            d1=i-n;
+            break;
+        }
     }
-    if(n-f<sec-n)
+    for(i=n-1;;i--)
     {
-        printf("%d",f);
+        if(fab(i))
+        {
+            bp=i;
+            d2=n-i;
+            break;
+        }
     }
-    else if(n-f==sec-n)
+    if(d1<d2)
     {
-        printf("%d %d",f,sec);
+        printf("%d",ap);
+    }
+    else if(d1>d2)
+    {
+        printf("%d",bp);
     }
     else
     {
-        printf("%d ",sec);
+        printf("%d %d",bp,ap);
     }
 }
+int fab(int n)
+{
+    int a=0,b=1,c,i,count=0;
+    for(i=1;i<=n;i++)
+    {
+        c=a+b;
+        a=b;
+        b=c;
+        if(c==n)
+        {
+            count=1;
+        }
+    }
+    if(count==1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+    
