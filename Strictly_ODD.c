@@ -8,23 +8,18 @@ int main()
     {
         scanf("%d",&a[i]);
     }
-    for(i=0;i<n;i++)
-    {
-        if(a[i]%2!=0)
-        {
-            if(i%2==0)
-            {
+    for(i=0;i<n;i++){
+        if(a[i]%2!=0){
+            if(i%2==0){
                 t=1;
                 break;
             }
         }
     }
-    if(t==0)
-    {
+    if(t==0){
         printf("True");
     }
-    else
-    {
+    else{
         printf("False");
     }
 }
