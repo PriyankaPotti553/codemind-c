@@ -1,9 +1,9 @@
 #include<stdio.h>
 int main()
 {
-    int n,i,c;
+    int n;
     scanf("%d",&n);
-    int a[n];
+    int a[n],i,t=0;
     for(i=0;i<n;i++)
     {
         scanf("%d",&a[i]);
@@ -12,18 +12,14 @@ int main()
     {
         if(a[i]%2!=0)
         {
-            if(i%2!=0)
+            if(i%2==0)
             {
-                c=0;
-            }
-            else
-            {
-                c=1;
+                t=1;
                 break;
             }
         }
     }
-    if(c!=1)
+    if(t==0)
     {
         printf("True");
     }
