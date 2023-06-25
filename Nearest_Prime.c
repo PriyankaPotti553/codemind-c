@@ -1,53 +1,57 @@
 #include<stdio.h>
-int is_prime(int);
-int pre_prime(int);
-int nex_prime(int);
 int main()
 {
-    int k,n,a,b,i;
-    scanf("%d",&k);
-    for(i=1;i<=k;i++)
+    int n,i,arr[100],j,k,np,sp,c=0,d,e;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
     {
-        scanf("%d",&n);
-        a=pre_prime(n);
-        b=nex_prime(n);
-        if((n-a)<=(b-n))
+        scanf("%d",&arr[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=arr[i];j>=arr[i]-10;j--)
         {
-            printf("%d
-",a);
+        	c=0;
+            for(k=1;k<=j;k++)
+            {
+                if(j%k==0)
+                {
+                    c++;
+                }
+            }
+            if(c==2)
+            {
+                np=j;
+                d=arr[i]-np;
+                break;
+            }
+        }
+        for(j=arr[i];j<=arr[i]+10;j++)
+        {
+        	c=0;
+            for(k=1;k<=j;k++)
+            {
+                if(j%k==0)
+                {
+                    c++;
+                }
+            }
+            if(c==2)
+            {
+                sp=j;
+                e=sp-arr[i];
+                break;
+            }
+        }
+        if(d<e || d==e)
+        {
+            printf("%d",np);
         }
         else
         {
-            printf("%d
-",b);
+            printf("%d",sp);
         }
+        printf("
+");
     }
-}
-int is_prime(int m)
-{
-    int fc=0,i;
-    for(i=1;i<=m;i++)
-    {
-        if(m%i==0)
-        {
-            fc=fc+1;
-        }
-    }
-    return fc==2;
-}
-int pre_prime(int n)
-{
-    while(is_prime(n)==0)
-    {
-        n--;
-    }
-    return n;
-}
-int nex_prime(int n)
-{
-    while(is_prime(n)==0)
-    {
-        n++;
-    }
-    return n;
 }
