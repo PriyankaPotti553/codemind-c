@@ -38,8 +38,10 @@ int main()
                     max=arr[l];
                 }
             }
-            printf("%d
-",max-min);
+            printf("%d",max-min);
         }
+        printf("
+");
     }
+    
 }
